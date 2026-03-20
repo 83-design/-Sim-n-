@@ -2,58 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Dimon Crypto Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dimon Crypto</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div id="game-screen">
-            <div class="header">
-                <div class="balance">💰 <span id="balance">0</span></div>
-                <div class="energy-container">
-                    <div id="energy-bar"></div>
-                    <small id="energy-text">100 / 100</small>
-                </div>
-            </div>
+    <div class="header">
+        <div id="balance">0</div>
+    </div>
 
-            <div class="coin-section">
-                <div id="coin" class="skin-dimon">
-                    <span class="coin-text">ДИМОН</span>
-                </div>
-            </div>
+    <div class="coin-container">
+        <div id="coin"></div>
+    </div>
 
-            <div class="menu">
-                <button onclick="showScreen('shop')">🛒 Магазин</button>
-                <button onclick="showScreen('ref')">👥 Рефы</button>
+    <div class="footer">
+        <div class="energy-box">
+            <span>⚡ <span id="energy-text">100</span></span>
+            <div class="energy-bar-bg">
+                <div id="energy-bar"></div>
             </div>
         </div>
-
-        <div id="shop-screen" class="hidden">
-            <h1>Магазин Димона</h1>
-            <div class="item">
-                <p>🤖 Авто-кликер (1000 💰)</p>
-                <button onclick="buyUpgrade('auto', 1000)">Купить</button>
-            </div>
-            <div class="item">
-                <p>🔹 Скин: TG Blue (500 💰)</p>
-                <button onclick="buySkin('skin-tg', 500)">Выбрать</button>
-            </div>
-            <div class="item">
-                <p>🟣 Скин: Void Dimon (2500 💰)</p>
-                <button onclick="buySkin('skin-void', 2500)">Выбрать</button>
-            </div>
-            <button class="back" onclick="showScreen('game')">Назад</button>
-        </div>
-
-        <div id="ref-screen" class="hidden">
-            <h1>Рефералы</h1>
-            <p>Зови друзей — получай 100 ⭐</p>
-            <div class="ref-link">t.me/your_bot?start=user123</div>
-            <button class="back" onclick="showScreen('game')">Назад</button>
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showScreen('shop')">🛒 Shop</button>
+            <button class="nav-btn" onclick="showScreen('ref')">👥 Friends</button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
