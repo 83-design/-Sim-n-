@@ -7,25 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <div id="balance">0</div>
+    <div class="top-nav">
+        <div class="user-info">🐹 Dimon (CEO)</div>
+        <div class="settings">⚙️</div>
     </div>
 
-    <div class="coin-container">
-        <div id="coin"></div>
+    <div class="stats-cards">
+        <div class="card"><span>Daily reward</span><br><b>11:20</b></div>
+        <div class="card"><span>Daily cipher</span><br><b>06:15</b></div>
+        <div class="card"><span>Daily combo</span><br><b>23:10</b></div>
     </div>
 
-    <div class="footer">
-        <div class="energy-box">
-            <span>⚡ <span id="energy-text">100</span></span>
-            <div class="energy-bar-bg">
-                <div id="energy-bar"></div>
+    <div class="main-balance">
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" width="35">
+        <span id="balance">0</span>
+    </div>
+
+    <div class="coin-area">
+        <div class="coin-circle">
+            <div id="coin">
+                <div class="dimon-text">Dimon Crypto</div>
             </div>
         </div>
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="showScreen('shop')">🛒 Shop</button>
-            <button class="nav-btn" onclick="showScreen('ref')">👥 Friends</button>
+    </div>
+
+    <div class="energy-section">
+        <div class="energy-text">
+            ⚡ <span id="energy-text">100</span> / 100
         </div>
+        <div class="boost">🚀 Boost</div>
+        <div class="energy-bar-bg">
+            <div id="energy-bar"></div>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <div class="nav-item active">💰<br>Exchange</div>
+        <div class="nav-item">⛏️<br>Mine</div>
+        <div class="nav-item">👥<br>Friends</div>
+        <div class="nav-item">🪙<br>Earn</div>
+        <div class="nav-item">🪂<br>Airdrop</div>
     </div>
 
     <script src="script.js"></script>
