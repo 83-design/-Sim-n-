@@ -3,44 +3,48 @@ let energy = 100;
 const maxEnergy = 100;
 
 function updateUI() {
-    document.getElementById('balance').innerText = balance;
-    document.getElementById('energy-text').innerText = `${energy} / ${maxEnergy}`;
+    document.getElementById('balance').innerText = Math.floor(balance);
+    document.getElementById('energy-text').innerText = `${energy}`;
     document.getElementById('energy-bar').style.width = (energy / maxEnergy * 100) + '%';
     localStorage.setItem('balance', balance);
 }
 
-document.getElementById('coin').addEventListener('click', (e) => {
+const coin = document.getElementById('coin');
+
+coin.addEventListener('click', (e) => {
     if (energy >= 2) {
         balance += 1;
         energy -= 2;
+        
+        // Вибрация (если поддерживается)
+        if (window.navigator.vibrate) window.navigator.vibrate(10);
+
+        // Создаем +1
+        const plusOne = document.createElement('div');
+        plusOne.innerText = '+1';
+        plusOne.className = 'plus-one';
+        plusOne.style.left = e.clientX + 'px';
+        plusOne.style.top = e.clientY + 'px';
+        document.body.appendChild(plusOne);
+
+        setTimeout(() => plusOne.remove(), 800);
         updateUI();
     }
 });
 
-setInterval(() => { if (energy < maxEnergy) { energy++; updateUI(); } }, 1000);
+// БЫСТРЫЙ РЕГЕН (3 единицы в секунду)
+setInterval(() => {
+    if (energy < maxEnergy) {
+        energy += 3;
+        if (energy > maxEnergy) energy = maxEnergy;
+        updateUI();
+    }
+}, 1000);
 
 function showScreen(name) {
-    document.getElementById('game-screen').classList.add('hidden');
-    document.getElementById('shop-screen').classList.add('hidden');
-    document.getElementById('ref-screen').classList.add('hidden');
-    document.getElementById(name + '-screen').classList.remove('hidden');
+    // Для простоты — если это не игра, скрываем всё остальное
+    // В реальном приложении тут были бы переключения экранов
+    alert("Раздел " + name + " откроется в следующем обновлении!");
 }
 
-function buySkin(skin, price) {
-    if (balance >= price) {
-        balance -= price;
-        document.getElementById('coin').className = skin;
-        updateUI();
-    } else { alert("Мало Димон-коинов!"); }
-}
-
-function buyUpgrade(type, price) {
-    if (balance >= price) {
-        balance -= price;
-        setInterval(() => { balance += 1; updateUI(); }, 1000);
-        updateUI();
-        alert("Авто-кликер запущен!");
-    }
-}
 updateUI();
-
