@@ -7,46 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="top-nav">
-        <div class="user-info">🐹 Dimon (CEO)</div>
-        <div class="settings">⚙️</div>
-    </div>
 
-    <div class="stats-cards">
-        <div class="card"><span>Daily reward</span><br><b>11:20</b></div>
-        <div class="card"><span>Daily cipher</span><br><b>06:15</b></div>
-        <div class="card"><span>Daily combo</span><br><b>23:10</b></div>
-    </div>
-
-    <div class="main-balance">
-        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" width="35">
-        <span id="balance">0</span>
-    </div>
-
-    <div class="coin-area">
-        <div class="coin-circle">
-            <div id="coin">
-                <div class="dimon-text">Dimon Crypto</div>
-            </div>
+    <div class="header">
+        <div class="balance-container">
+            <span id="balance">0</span>
         </div>
     </div>
 
-    <div class="energy-section">
-        <div class="energy-text">
-            ⚡ <span id="energy-text">100</span> / 100
+    <div class="coin-section">
+        <div id="coin">
+            <div class="engraving">Dimon Crypto</div>
         </div>
-        <div class="boost">🚀 Boost</div>
+    </div>
+
+    <div class="controls">
+        <div class="energy-row">
+            <span>⚡ <span id="energy-text">100</span> / 100</span>
+        </div>
         <div class="energy-bar-bg">
             <div id="energy-bar"></div>
         </div>
+        
+        <div class="button-group">
+            <button class="main-btn" onclick="showTab('shop')">🛒 Магазин</button>
+            <button class="main-btn" onclick="showTab('ref')">👥 Рефы</button>
+        </div>
     </div>
 
-    <div class="bottom-menu">
-        <div class="nav-item active">💰<br>Exchange</div>
-        <div class="nav-item">⛏️<br>Mine</div>
-        <div class="nav-item">👥<br>Friends</div>
-        <div class="nav-item">🪙<br>Earn</div>
-        <div class="nav-item">🪂<br>Airdrop</div>
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p>Этот раздел будет доступен в следующем обновлении!</p>
+            <button onclick="closeTab()">Закрыть</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
